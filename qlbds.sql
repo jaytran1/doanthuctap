@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 25, 2021 at 11:40 AM
+-- Generation Time: Apr 25, 2021 at 02:16 PM
 -- Server version: 5.7.28
 -- PHP Version: 7.3.12
 
@@ -222,7 +222,7 @@ DROP TABLE IF EXISTS `yeu_cau_kh`;
 CREATE TABLE IF NOT EXISTS `yeu_cau_kh` (
   `ycid` int(8) NOT NULL AUTO_INCREMENT,
   `vitri` varchar(50) NOT NULL,
-  `mota` varchar(50) NOT NULL,
+  `mota` varchar(50) DEFAULT NULL,
   `giat` float NOT NULL,
   `giaf` float NOT NULL,
   `dait` float NOT NULL,
@@ -234,7 +234,14 @@ CREATE TABLE IF NOT EXISTS `yeu_cau_kh` (
   PRIMARY KEY (`ycid`),
   KEY `loaiid` (`loaiid`),
   KEY `khid` (`khid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `yeu_cau_kh`
+--
+
+INSERT INTO `yeu_cau_kh` (`ycid`, `vitri`, `mota`, `giat`, `giaf`, `dait`, `daif`, `rongt`, `rongf`, `loaiid`, `khid`) VALUES
+(1, 'yu7', '5000000000', 5000000000, 6000000000, 45, 56, 45, 67, 1, 2);
 
 --
 -- Constraints for dumped tables

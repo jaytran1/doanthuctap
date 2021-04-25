@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\User;
 use App\Khach;
 use App\LoaiBDS;
+use App\YeuCau;
 use App\Http\Controllers\KhachController;
 use App\Http\Controllers\LoaiBDSController;
 use App\Http\Controllers\BDSController;
@@ -96,5 +97,17 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'], function () {
 			Route::get('xoa/{id}','App\Http\Controllers\BDSController@getXoa');
 
 			Route::get('hinh/{id}','App\Http\Controllers\BDSController@getHinh');
+		});
+
+		Route::group(['prefix'=>'yeucau'],function(){
+			Route::get('danhsach','App\Http\Controllers\YeuCauKHController@getDanhSach');
+
+			Route::get('them','App\Http\Controllers\YeuCauKHController@getThem');
+			Route::post('them','App\Http\Controllers\YeuCauKHController@postThem');
+
+			Route::get('sua/{id}','App\Http\Controllers\YeuCauKHController@getSua');
+			Route::post('sua/{id}','App\Http\Controllers\YeuCauKHController@postSua');
+
+			Route::get('xoa/{id}','App\Http\Controllers\YeuCauKHController@getXoa');
 		});
  });

@@ -96,10 +96,10 @@ class BDSController extends Controller
     }
 
     public function getSua($id){
-        $lbds = LoaiBDS::all();
-        $khach = Khach::all();
+        $lbds = LoaiBDS::find($id);
+        $khach = Khach::find($id);
         $bds= BDS::find($id);
-        return view('admin.bds.sua',['bds'=>$bds],['khach'=>$khach]);
+        return view('admin.bds.sua',['bds'=>$bds]);
     }
 
     public function postSua(Request $request,$id){

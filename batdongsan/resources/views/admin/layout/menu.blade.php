@@ -33,10 +33,10 @@
                             <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Yêu cầu khách hàng<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">List Product</a>
+                                    <a href="admin/yeucau/danhsach">List Yêu Cầu</a>
                                 </li>
                                 <li>
-                                    <a href="#">Add Product</a>
+                                    <a href="admin/yeucau/them">Add Yêu Cầu</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
