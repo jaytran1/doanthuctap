@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 25, 2021 at 02:16 PM
+-- Generation Time: May 01, 2021 at 01:28 PM
 -- Server version: 5.7.28
 -- PHP Version: 7.3.12
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `bat_dong_san` (
   PRIMARY KEY (`bdsid`),
   KEY `loaiid` (`loaiid`),
   KEY `khid` (`khid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `bat_dong_san`
@@ -61,7 +61,8 @@ INSERT INTO `bat_dong_san` (`bdsid`, `tinhtrang`, `dientich`, `dongia`, `chieuda
 (4, 1, 7868, 67868, 678, 67868, NULL, 'VMt_31531392.jpg', 'Như một quy luật tự nhiên, tất cả các thủ đô lớn, các thành phố phát triển trên thế giới đều có những dòng sông chảy qua. New York, Tokyo, Seoul hay Moscow… không nơi nào thiếu một dòng nước xuyên qua giữa lòng thành phố.', 678, 'gfdgdf', 'dfsdf', 'sdfsf', 'dfs', 'fdsfs', 1, 2),
 (5, 1, 6456460, 5645650, 45646, 456, NULL, 'tmZ_images1542933_a1.jpg', 'Alibaba Central Park di chuyển đến siêu dự án sân bay quốc tế Long Thành chỉ 10 phút, khi công bố ra mắt dự án các nhà đầu tư đều thực sự khó tin khi có thể sở hữu một vị trí đắc địa như thế ở vùng ven đô.', 54646, '456', '456', '456', '456', '45345', 1, 2),
 (6, 1, 7675, 56757, 56757, 5675, NULL, 'gcL_tin-bat-dong-san-4.jpg', 'Khu đô thị Sala Đại Quang Minh nằm trong khu Đô thị tài chính quốc tế Thủ Thiêm được đầu tư và phát triển bởi Công ty Đại Quang Minh, cùng với Phú Mỹ Hưng, Sala Thủ Thiêm sẽ là một trong 2 khu đô thị kiểu mẫu hiện đại bậc nhất Việt Nam và Đông Nam Á, hứa hẹn sẽ mang đến giá trị tương lai lớn cho cư dân Sala Thủ Thiêm nơi đây.', 7675, '7567', '567', '5675', '567', '5675', 1, 2),
-(7, 1, 6456, 45656, 4564, 456456, NULL, 'cWa_Ton-kho-bat-dong-san.jpg', 'Lakeview City - Khu đô thị hoàn chỉnh và đồng bộ tại Quận 2 được phát triển bởi tập đoàn Novaland. Dự án tọa lạc tại Phường An Phú, Quận 2, ngay mặt tiền đường Song hành Cao tốc Long Thành – Dầu Giây, liền kề trung tâm hành chính Thủ Thiêm, kết nối nhanh chóng với Quận 1 qua tuyến đường huyết mạch Mai Chí Thọ, kết nối với Quận 7 dễ dàng thông qua đường Vành Đai 2.', 45646, '4564', '546', '456', '45654', 'hcm', 3, 2);
+(7, 1, 6456, 45656, 4564, 456456, NULL, 'cWa_Ton-kho-bat-dong-san.jpg', 'Lakeview City - Khu đô thị hoàn chỉnh và đồng bộ tại Quận 2 được phát triển bởi tập đoàn Novaland. Dự án tọa lạc tại Phường An Phú, Quận 2, ngay mặt tiền đường Song hành Cao tốc Long Thành – Dầu Giây, liền kề trung tâm hành chính Thủ Thiêm, kết nối nhanh chóng với Quận 1 qua tuyến đường huyết mạch Mai Chí Thọ, kết nối với Quận 7 dễ dàng thông qua đường Vành Đai 2.', 45646, '4564', '546', '456', '45654', 'hcm', 3, 2),
+(8, 1, 567, 567, 567, 567, NULL, 'GAD_Ton-kho-bat-dong-san.jpg', NULL, 678, '67/5', '567', '567', '56', 'hcm', 2, 5);
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `hop_dong_chuyen_nhuong` (
   `cnid` int(8) NOT NULL AUTO_INCREMENT,
   `giatri` float NOT NULL,
   `ngaylap` date NOT NULL,
-  `trangthai` bit(1) NOT NULL,
+  `trangthai` tinyint(1) NOT NULL,
   `khid` int(8) NOT NULL,
   `bdsid` int(8) NOT NULL,
   `dcid` int(8) NOT NULL,
@@ -82,7 +83,14 @@ CREATE TABLE IF NOT EXISTS `hop_dong_chuyen_nhuong` (
   KEY `khid` (`khid`),
   KEY `bdsid` (`bdsid`),
   KEY `dcid` (`dcid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `hop_dong_chuyen_nhuong`
+--
+
+INSERT INTO `hop_dong_chuyen_nhuong` (`cnid`, `giatri`, `ngaylap`, `trangthai`, `khid`, `bdsid`, `dcid`) VALUES
+(2, 678000000, '2021-05-19', 1, 2, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -93,17 +101,24 @@ CREATE TABLE IF NOT EXISTS `hop_dong_chuyen_nhuong` (
 DROP TABLE IF EXISTS `hop_dong_dat_coc`;
 CREATE TABLE IF NOT EXISTS `hop_dong_dat_coc` (
   `dcid` int(8) NOT NULL AUTO_INCREMENT,
-  `ngaylaphd` int(11) NOT NULL,
-  `giatri` int(11) NOT NULL,
-  `tinhtrang` int(11) NOT NULL,
-  `trangthai` int(11) NOT NULL,
-  `ngayhethan` int(11) NOT NULL,
+  `ngaylaphd` date NOT NULL,
+  `giatri` float NOT NULL,
+  `tinhtrang` tinyint(1) NOT NULL,
+  `trangthai` tinyint(1) NOT NULL,
+  `ngayhethan` date NOT NULL,
   `khid` int(8) NOT NULL,
   `bdsid` int(8) NOT NULL,
   PRIMARY KEY (`dcid`),
   KEY `khid` (`khid`),
   KEY `bdsid` (`bdsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `hop_dong_dat_coc`
+--
+
+INSERT INTO `hop_dong_dat_coc` (`dcid`, `ngaylaphd`, `giatri`, `tinhtrang`, `trangthai`, `ngayhethan`, `khid`, `bdsid`) VALUES
+(1, '2021-05-05', 6777780, 1, 1, '2021-05-25', 2, 3);
 
 -- --------------------------------------------------------
 
@@ -113,18 +128,26 @@ CREATE TABLE IF NOT EXISTS `hop_dong_dat_coc` (
 
 DROP TABLE IF EXISTS `hop_dong_ki_gui`;
 CREATE TABLE IF NOT EXISTS `hop_dong_ki_gui` (
-  `kgid` int(8) NOT NULL,
+  `kgid` int(8) NOT NULL AUTO_INCREMENT,
   `giatri` float NOT NULL,
   `chiphidv` float NOT NULL,
   `ngaybatdau` date NOT NULL,
   `ngayketthuc` date NOT NULL,
-  `trangthai` bit(1) NOT NULL,
+  `trangthai` tinyint(1) NOT NULL,
   `khid` int(8) NOT NULL,
   `bdsid` int(8) NOT NULL,
   PRIMARY KEY (`kgid`),
   KEY `khid` (`khid`),
   KEY `bdsid` (`bdsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `hop_dong_ki_gui`
+--
+
+INSERT INTO `hop_dong_ki_gui` (`kgid`, `giatri`, `chiphidv`, `ngaybatdau`, `ngayketthuc`, `trangthai`, `khid`, `bdsid`) VALUES
+(1, 300000000, 155600000, '2021-05-18', '2021-05-31', 0, 2, 3),
+(3, 4000000000, 8000000, '2021-05-19', '2021-05-24', 1, 5, 8);
 
 -- --------------------------------------------------------
 
@@ -234,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `yeu_cau_kh` (
   PRIMARY KEY (`ycid`),
   KEY `loaiid` (`loaiid`),
   KEY `khid` (`khid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `yeu_cau_kh`
